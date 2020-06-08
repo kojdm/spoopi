@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/kojdm.github.io/spoopi/static/css/main.5f361e03.chunk.css",
-    "main.js": "/kojdm.github.io/spoopi/static/js/main.e57ae370.chunk.js",
-    "main.js.map": "/kojdm.github.io/spoopi/static/js/main.e57ae370.chunk.js.map",
-    "runtime-main.js": "/kojdm.github.io/spoopi/static/js/runtime-main.0d6ddcc6.js",
-    "runtime-main.js.map": "/kojdm.github.io/spoopi/static/js/runtime-main.0d6ddcc6.js.map",
-    "static/js/2.7d50ae84.chunk.js": "/kojdm.github.io/spoopi/static/js/2.7d50ae84.chunk.js",
-    "static/js/2.7d50ae84.chunk.js.map": "/kojdm.github.io/spoopi/static/js/2.7d50ae84.chunk.js.map",
-    "index.html": "/kojdm.github.io/spoopi/index.html",
-    "precache-manifest.d40a8a7d2c30e6ca521b6777dc73ee80.js": "/kojdm.github.io/spoopi/precache-manifest.d40a8a7d2c30e6ca521b6777dc73ee80.js",
-    "service-worker.js": "/kojdm.github.io/spoopi/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/kojdm.github.io/spoopi/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.7d50ae84.chunk.js.LICENSE.txt": "/kojdm.github.io/spoopi/static/js/2.7d50ae84.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/kojdm.github.io/spoopi/static/media/logo.5d5d9eef.svg"
+    "main.css": "/spoopi/static/css/main.5f361e03.chunk.css",
+    "main.js": "/spoopi/static/js/main.e0325a97.chunk.js",
+    "main.js.map": "/spoopi/static/js/main.e0325a97.chunk.js.map",
+    "runtime-main.js": "/spoopi/static/js/runtime-main.c91185d1.js",
+    "runtime-main.js.map": "/spoopi/static/js/runtime-main.c91185d1.js.map",
+    "static/js/2.7d50ae84.chunk.js": "/spoopi/static/js/2.7d50ae84.chunk.js",
+    "static/js/2.7d50ae84.chunk.js.map": "/spoopi/static/js/2.7d50ae84.chunk.js.map",
+    "index.html": "/spoopi/index.html",
+    "precache-manifest.9c2c0a22798fc52cf2d456791bdee9a6.js": "/spoopi/precache-manifest.9c2c0a22798fc52cf2d456791bdee9a6.js",
+    "service-worker.js": "/spoopi/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/spoopi/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.7d50ae84.chunk.js.LICENSE.txt": "/spoopi/static/js/2.7d50ae84.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/spoopi/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0d6ddcc6.js",
+    "static/js/runtime-main.c91185d1.js",
     "static/js/2.7d50ae84.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.e57ae370.chunk.js"
+    "static/js/main.e0325a97.chunk.js"
   ]
 }
