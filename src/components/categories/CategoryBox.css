@@ -1,0 +1,20 @@
+.CategoryBox {
+  display: inline-grid;
+  position: relative;
+  text-align: center;
+  height: 150px;
+  width: 150px;
+  margin: 10px;
+}
+
+.category-image {
+  height: 100%;
+  width: 100%;
+}
+
+.category-name {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

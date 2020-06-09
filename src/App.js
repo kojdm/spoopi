@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import SpoopiNav from "./components/SpoopiNav"
+import SpoopiContainer from "./components/SpoopiContainer"
+
 function App() {
-  return (
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="column left">
+        <SpoopiNav/>
+      </div>
+      <div className="column right">
+        <SpoopiContainer/>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
