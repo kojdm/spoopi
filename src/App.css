@@ -4,23 +4,31 @@
 
 .column {
   float: left;
-  height: 100vh;
+  height: 100%;
 }
 
 .left {
-  width: 25%;
-}
-
-.right {
   width: 75%;
 }
 
-@media screen and (max-width: 1000px) {
+.right {
+  width: 25%;
+}
+
+@media screen and (max-width: 800px) {
+  .App {
+    display: table;
+  }
   .column {
+    float: none;
     width: 100%;
   }
   .left {
+    display: table-footer-group;
+  }
+  .right {
     height: 20%;
+    display: table-header-group;
   }
 }
 

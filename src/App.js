@@ -8,10 +8,10 @@ function App() {
   return(
     <div className="App">
       <div className="column left">
-        <SpoopiNav/>
+        <SpoopiContainer/>
       </div>
       <div className="column right">
-        <SpoopiContainer/>
+        <SpoopiNav/>
       </div>
     </div>
   )
