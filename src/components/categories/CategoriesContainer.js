@@ -4,7 +4,7 @@ import "./CategoriesContainer.css"
 import CategoryBox from "./CategoryBox"
 import NextButton from "../NextButton"
 
-function CategoriesContainer() {
+function CategoriesContainer({ handleCategories }) {
   const [countryCode, setCountryCode] = useState("")
   const [categories, setCategories] = useState([])
   const [catCount, setCatCount] = useState(0)
@@ -52,7 +52,13 @@ function CategoriesContainer() {
   return(
     <div className="CategoriesContainer">
       {categories.map(cat => (
-        <CategoryBox id={cat.id} name={cat.name} image_url={cat.image_url} handleCatCount={handleCatCount}/>
+        <CategoryBox
+          id={cat.id}
+          name={cat.name}
+          image_url={cat.image_url}
+          handleCatCount={handleCatCount}
+          handleCategories={handleCategories}
+        />
       ))}
         <NextButton content={nextButtonContent()} nextable={catCount >= 1}/>
     </div>
