@@ -21,19 +21,29 @@
 }
 
 .CategoryBox:hover {
-  box-shadow: 0 0 15px var(--spoopi-orange);
+  outline: 3px solid var(--spoopi-orange);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.category-selected {
+  outline: 3px solid var(--spoopi-orange);
   opacity: 1;
   cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {
   .CategoryBox {
-    float: left;
+    display: inline-block;
+    float: none;
     height: 100px;
     width: 100px;
     margin: 5px;
   }
   .category-name {
     font-size: 0.75rem;
+  }
+  .CategoryBox:hover {
+    outline: 2px solid var(--spoopi-orange);
   }
 }

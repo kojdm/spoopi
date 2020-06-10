@@ -7,9 +7,13 @@
 
 html {
   font-size: 1em;
+  height: 100%;
 }
 
 body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -18,6 +22,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--spoopi-black);
   color: var(--spoopi-text);
+}
+
+.root {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+  width: 100%;
+  margin-top: 50px;
+  background-color: var(--spoopi-gray);
+  text-align: center;
+  font-size: 1rem;
+  padding: 5px 0;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--spoopi-orange);
+}
+
+.footer a:visited {
+  color: var(--spoopi-orange);
 }
 
 code {
