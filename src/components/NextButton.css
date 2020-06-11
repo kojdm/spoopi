@@ -1,5 +1,5 @@
 .NextButton {
-  background-color: var(--spoopi-orange);
+  background-color: var(--spoopi-gray);
   box-shadow: 0 0 30px black;
   position: fixed;
   bottom: 8vh;
@@ -20,6 +20,10 @@
 .next-arrow {
   font-weight: bold;
   margin: 0 0 0 1vw;
+}
+
+.nextable {
+  background-color: var(--spoopi-orange) !important;
 }
 
 @media screen and (max-width: 800px) {

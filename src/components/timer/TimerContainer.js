@@ -4,7 +4,7 @@ import "./TimerContainer.css"
 import TimerInput from "./TimerInput"
 import NextButton from "../NextButton"
 
-function TimerContainer({ handleDuration }) {
+function TimerContainer({ handleDuration, nextPage }) {
   // NOTE: keeping this here in case i want to use it again
   // const createPlaceholder = () => {
   //   const max_hours = 12
@@ -59,7 +59,7 @@ function TimerContainer({ handleDuration }) {
     }
     const formatted_time = arr.join(" ")
 
-    if (arr.length <= 0) return "Choose a duration for your playlist"
+    if (arr.length <= 0) return "Enter a duration for your playlist"
 
     return "Create a " + formatted_time + " playlist"
   }
@@ -68,7 +68,7 @@ function TimerContainer({ handleDuration }) {
     <div className="TimerContainer">
       <TimerInput symbol="h" placeholder={"00"} setTime={handleSetTime}/>
       <TimerInput symbol="m" placeholder={"00"} setTime={handleSetTime} value={mins} readonly={hours >= 12} hours={hours}/>
-      <NextButton content={nextButtonContent()} nextable={hours !== null || mins !== null}/>
+      <NextButton content={nextButtonContent()} nextable={hours !== null || mins !== null} nextPage={nextPage}/>
     </div>
   )
 }

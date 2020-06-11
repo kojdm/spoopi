@@ -1,20 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useReducer } from 'react'
 import "./SpoopiContainer.css"
 
 import CategoriesContainer from "./categories/CategoriesContainer"
 import TimerContainer from "./timer/TimerContainer"
 
-function SpoopiContainer() {
-  const [duration, setDuration] = useState(0)
-  const [categories, setCategories] = useState([])
-
-  const handleDuration = (hours, mins) => {
-    const h_in_s = parseInt(hours || 0) * 60 * 60
-    const m_in_s = parseInt(mins || 0) * 60
-    const new_duration = h_in_s + m_in_s
-
-    setDuration(new_duration)
+const initialState = { current_page: "categories" }
+const pages = ["categories", "timer"]
+const reducer = (state, action) => {
+  switch (action) {
+    case "nextpage":
+      const next_page_index = pages.indexOf(state.current_page) + 1
+      return { current_page: pages[next_page_index] }
+    default:
+      throw new Error()
   }
+}
+
+function SpoopiContainer() {
+  const [state, dispatch] = useReducer(reducer, initialState)
+  const [categories, setCategories] = useState([])
+  const [duration, setDuration] = useState(0)
 
   const handleCategories = (category_id) => {
     let new_categories = categories
@@ -31,12 +36,18 @@ function SpoopiContainer() {
     setCategories(new_categories)
   }
 
-      // <TimerContainer/>
-      // <CategoriesContainer handleCategories={handleCategories}/>
+  const handleDuration = (hours, mins) => {
+    const h_in_s = parseInt(hours || 0) * 60 * 60
+    const m_in_s = parseInt(mins || 0) * 60
+    const new_duration = h_in_s + m_in_s
+
+    setDuration(new_duration)
+  }
+
   return(
     <div className="SpoopiContainer">
-      <TimerContainer handleDuration={handleDuration}/>
-      <h1>{duration}</h1>
+      { state.current_page === "categories" && <CategoriesContainer handleCategories={handleCategories} nextPage={dispatch}/> }
+      { state.current_page === "timer" && <TimerContainer handleDuration={handleDuration} nextPage={dispatch}/> }
     </div>
   )
 }

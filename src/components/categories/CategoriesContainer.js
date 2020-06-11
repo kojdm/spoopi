@@ -4,7 +4,7 @@ import "./CategoriesContainer.css"
 import CategoryBox from "./CategoryBox"
 import NextButton from "../NextButton"
 
-function CategoriesContainer({ handleCategories }) {
+function CategoriesContainer({ handleCategories, nextPage }) {
   const [countryCode, setCountryCode] = useState("")
   const [categories, setCategories] = useState([])
   const [catCount, setCatCount] = useState(0)
@@ -60,7 +60,7 @@ function CategoriesContainer({ handleCategories }) {
           handleCategories={handleCategories}
         />
       ))}
-        <NextButton content={nextButtonContent()} nextable={catCount >= 1}/>
+        <NextButton content={nextButtonContent()} nextable={catCount >= 1} nextPage={nextPage}/>
     </div>
   )
 }
