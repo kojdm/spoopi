@@ -1,7 +1,7 @@
 import React from "react"
 import "./TimerInput.css"
 
-function TimerInput({ symbol, placeholder, setTime, value, readonly }) {
+function TimerInput({ symbol, placeholder, setTime, value, readonly, hours }) {
   const handleChange = (e) => {
     const max_length = 2
     e.target.value = e.target.value.slice(0, max_length)
@@ -21,6 +21,17 @@ function TimerInput({ symbol, placeholder, setTime, value, readonly }) {
     setTime(symbol, e.target.value)
   }
 
+  const handleBlur = (e) => {
+    if (symbol !== "m") return
+
+    const val = parseInt(e.target.value || 0)
+    hours = parseInt(hours || 0)
+    if (hours <= 0 && val < 15) {
+      setTime(symbol, 15)
+    }
+  }
+
+
   return(
     <div className="TimerInput">
       <input
@@ -29,6 +40,7 @@ function TimerInput({ symbol, placeholder, setTime, value, readonly }) {
         placeholder={placeholder}
         value={value}
         readOnly={readonly}
+        onBlur={handleBlur}
       />
       <div className="input-symbol">{symbol}</div>
     </div>

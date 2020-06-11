@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./TimerContainer.css"
 
 import TimerInput from "./TimerInput"
 import NextButton from "../NextButton"
 
-function TimerContainer() {
+function TimerContainer({ handleDuration }) {
   // NOTE: keeping this here in case i want to use it again
   // const createPlaceholder = () => {
   //   const max_hours = 12
@@ -37,10 +37,14 @@ function TimerContainer() {
     }
     else {
       if (parseInt(hours || 0) >= 12) val = 0
-      if (parseInt(hours || 0) <= 0 && val < 15) val = 15
+      // if (parseInt(hours || 0) <= 0 && val < 15) val = 15
       setMins(val || null)
     }
   }
+
+  useEffect(() => {
+    handleDuration(hours, mins)
+  })
 
   const nextButtonContent = () => {
     let arr = []
@@ -63,7 +67,7 @@ function TimerContainer() {
   return(
     <div className="TimerContainer">
       <TimerInput symbol="h" placeholder={"00"} setTime={handleSetTime}/>
-      <TimerInput symbol="m" placeholder={"00"} setTime={handleSetTime} value={mins} readonly={hours >= 12}/>
+      <TimerInput symbol="m" placeholder={"00"} setTime={handleSetTime} value={mins} readonly={hours >= 12} hours={hours}/>
       <NextButton content={nextButtonContent()} nextable={hours !== null || mins !== null}/>
     </div>
   )
