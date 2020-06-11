@@ -6,14 +6,9 @@ import TimerContainer from "./timer/TimerContainer"
 
 const initialState = { current_page: "categories" }
 const pages = ["categories", "timer"]
-const reducer = (state, action) => {
-  switch (action) {
-    case "nextpage":
-      const next_page_index = pages.indexOf(state.current_page) + 1
-      return { current_page: pages[next_page_index] }
-    default:
-      throw new Error()
-  }
+const reducer = (state) => {
+  const next_page_index = pages.indexOf(state.current_page) + 1
+  return { current_page: pages[next_page_index] }
 }
 
 function SpoopiContainer() {
