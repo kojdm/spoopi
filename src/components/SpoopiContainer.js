@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./SpoopiContainer.css"
 
 import CategoriesContainer from "./categories/CategoriesContainer"
+import TimerContainer from "./timer/TimerContainer"
 
 function SpoopiContainer() {
   const [duration, setDuration] = useState(0)
@@ -22,9 +23,11 @@ function SpoopiContainer() {
     setCategories(new_categories)
   }
 
+      // <TimerContainer/>
+      // <CategoriesContainer handleCategories={handleCategories}/>
   return(
     <div className="SpoopiContainer">
-      <CategoriesContainer handleCategories={handleCategories}/>
+      <TimerContainer/>
     </div>
   )
 }

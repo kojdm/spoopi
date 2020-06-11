@@ -1,0 +1,37 @@
+.TimerInput {
+  display: inline-block;
+  position: relative;
+  width: 40%;
+}
+
+input {
+  border: none;
+  background-color: var(--spoopi-black);
+  border-bottom: 5px solid var(--spoopi-orange);
+  width: 100%;
+  color: var(--spoopi-text);
+  font-size: 15vw;
+  padding: 0 2vw;
+  text-align: center;
+}
+
+.input-symbol {
+  position: absolute;
+  bottom: 5vw;
+  right: 0;
+  font-size: 5vw;
+  color: var(--spoopi-gray)
+}
+
+/* HIDE ARROWS IN NUMBER INPUT */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

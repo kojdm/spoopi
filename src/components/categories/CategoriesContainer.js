@@ -38,7 +38,7 @@ function CategoriesContainer({ handleCategories }) {
   }
 
   const nextButtonContent = () => {
-    if (catCount == 5) {
+    if (catCount === 5) {
       return "5 of 5 selected"
     }
     else if (catCount >= 1) {
