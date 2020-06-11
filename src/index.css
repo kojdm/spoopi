@@ -24,7 +24,7 @@ body {
   color: var(--spoopi-text);
 }
 
-.root {
+#root {
   flex: 1 0 auto;
 }
 
