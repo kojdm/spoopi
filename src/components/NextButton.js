@@ -3,7 +3,7 @@ import "./NextButton.css"
 
 function NextButton({ content, nextable, nextPage }) {
   const handleNextPage = () => {
-    nextable && nextPage()
+    nextable && nextPage("next")
   }
 
   return(
