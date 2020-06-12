@@ -10,6 +10,9 @@ function CategoriesContainer({ handleCategories, pageTraversal, selectedCategori
   const [catCount, setCatCount] = useState(selectedCategories.length)
 
   useEffect(() => {
+    const local_categories = JSON.parse(localStorage.getItem("allCategories"))
+    if (local_categories) return setAllCategories(local_categories)
+
     // get user's country code
     fetch("http://ip-api.com/json")
       .then(res => res.json())
@@ -24,6 +27,7 @@ function CategoriesContainer({ handleCategories, pageTraversal, selectedCategori
       .then(
         (result) => {
           setAllCategories(result.categories)
+          localStorage.setItem("allCategories", JSON.stringify(result.categories))
         }
       )
   }, [countryCode])
