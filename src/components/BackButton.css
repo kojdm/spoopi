@@ -1,0 +1,32 @@
+.BackButton {
+  background-color: var(--spoopi-gray);
+  box-shadow: 0 0 30px black;
+  position: fixed;
+  bottom: 8vh;
+  left: 0;
+  padding: 1rem 1rem 1rem 2rem;
+  opacity: 0.8;
+}
+
+.BackButton:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.back-button-content {
+  font-size: 1.75vw;
+}
+
+.back-arrow {
+  font-weight: bold;
+  margin: 0 1vw 0 0;
+}
+
+@media screen and (max-width: 800px) {
+  .BackButton {
+    bottom: 40px;
+  }
+  .back-button-content {
+    font-size: 1rem;
+  }
+}
