@@ -3,16 +3,25 @@ import "./SpoopiContainer.css"
 
 import CategoriesContainer from "./categories/CategoriesContainer"
 import TimerContainer from "./timer/TimerContainer"
+import BackButton from "./BackButton"
 
 const initialState = { current_page: "categories" }
 const pages = ["categories", "timer"]
-const reducer = (state) => {
-  const next_page_index = pages.indexOf(state.current_page) + 1
-  return { current_page: pages[next_page_index] }
+const reducer = (state, action) => {
+  switch(action) {
+    case "next":
+      const next_page_index = pages.indexOf(state.current_page) + 1
+      return { current_page: pages[next_page_index] }
+    case "back":
+      const previous_page_index = pages.indexOf(state.current_page) - 1
+      return { current_page: pages[previous_page_index] }
+    default:
+      throw new Error()
+  }
 }
 
 function SpoopiContainer() {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, pageTraversal] = useReducer(reducer, initialState)
   const [categories, setCategories] = useState([])
   const [duration, setDuration] = useState(0)
 
@@ -41,8 +50,10 @@ function SpoopiContainer() {
 
   return(
     <div className="SpoopiContainer">
-      { state.current_page === "categories" && <CategoriesContainer handleCategories={handleCategories} nextPage={dispatch}/> }
-      { state.current_page === "timer" && <TimerContainer handleDuration={handleDuration} nextPage={dispatch}/> }
+      { state.current_page === "categories" && <CategoriesContainer handleCategories={handleCategories} selectedCategories={categories} pageTraversal={pageTraversal}/> }
+      { state.current_page === "timer" && <TimerContainer handleDuration={handleDuration} pageTraversal={pageTraversal}/> }
+
+      { state.current_page !== "categories" && <BackButton backPage={pageTraversal}/>}
     </div>
   )
 }

@@ -4,10 +4,10 @@ import "./CategoriesContainer.css"
 import CategoryBox from "./CategoryBox"
 import NextButton from "../NextButton"
 
-function CategoriesContainer({ handleCategories, nextPage }) {
+function CategoriesContainer({ handleCategories, pageTraversal, selectedCategories }) {
   const [countryCode, setCountryCode] = useState("")
-  const [categories, setCategories] = useState([])
-  const [catCount, setCatCount] = useState(0)
+  const [allCategories, setAllCategories] = useState([])
+  const [catCount, setCatCount] = useState(selectedCategories.length)
 
   useEffect(() => {
     // get user's country code
@@ -23,7 +23,7 @@ function CategoriesContainer({ handleCategories, nextPage }) {
       .then(res => res.json())
       .then(
         (result) => {
-          setCategories(result.categories)
+          setAllCategories(result.categories)
         }
       )
   }, [countryCode])
@@ -51,16 +51,17 @@ function CategoriesContainer({ handleCategories, nextPage }) {
 
   return(
     <div className="CategoriesContainer">
-      {categories.map(cat => (
+      {allCategories.map(cat => (
         <CategoryBox
           id={cat.id}
           name={cat.name}
           image_url={cat.image_url}
           handleCatCount={handleCatCount}
           handleCategories={handleCategories}
+          isSelected={selectedCategories.indexOf(cat.id) >= 0}
         />
       ))}
-        <NextButton content={nextButtonContent()} nextable={catCount >= 1} nextPage={nextPage}/>
+        <NextButton content={nextButtonContent()} nextable={catCount >= 1} nextPage={pageTraversal}/>
     </div>
   )
 }
