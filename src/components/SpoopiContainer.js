@@ -54,7 +54,7 @@ function SpoopiContainer() {
   return(
     <div className="SpoopiContainer">
       { state.current_page === "categories" && <CategoriesContainer handleCategories={handleCategories} selectedCategories={categories} pageTraversal={pageTraversal}/> }
-      { state.current_page === "timer" && <TimerContainer handleDuration={handleDuration} pageTraversal={pageTraversal}/> }
+      { state.current_page === "timer" && <TimerContainer duration={duration} handleDuration={handleDuration} pageTraversal={pageTraversal}/> }
       { state.current_page === "tracks" && <TracksContainer duration={duration} categories={categories} tracks={tracks} handleTracks={setTracks} pageTraversal={pageTraversal}/> }
 
       { state.current_page !== "categories" && <BackButton backPage={pageTraversal}/>}

@@ -4,7 +4,7 @@ import "./TimerContainer.css"
 import TimerInput from "./TimerInput"
 import NextButton from "../NextButton"
 
-function TimerContainer({ handleDuration, pageTraversal }) {
+function TimerContainer({ duration, handleDuration, pageTraversal }) {
   // NOTE: keeping this here in case i want to use it again
   // const createPlaceholder = () => {
   //   const max_hours = 12
@@ -25,8 +25,17 @@ function TimerContainer({ handleDuration, pageTraversal }) {
   //   return [hours, minutes]
   // }
 
-  const [hours, setHours] = useState(null)
-  const [mins, setMins] = useState(null)
+  const calculateInitDuration = () => {
+    let init_mins = duration / 60
+    const init_hours = Math.floor(init_mins / 60)
+    init_mins = init_mins - init_hours * 60 
+
+    return [init_hours, init_mins]
+  }
+
+  const initDuration = calculateInitDuration()
+  const [hours, setHours] = useState(initDuration[0])
+  const [mins, setMins] = useState(initDuration[1])
 
   const handleSetTime = (key, val) => {
     val = parseInt(val || 0)
@@ -65,9 +74,9 @@ function TimerContainer({ handleDuration, pageTraversal }) {
 
   return(
     <div className="TimerContainer">
-      <TimerInput symbol="h" placeholder={"00"} setTime={handleSetTime}/>
+      <TimerInput symbol="h" placeholder={"00"} setTime={handleSetTime} value={hours}/>
       <TimerInput symbol="m" placeholder={"00"} setTime={handleSetTime} value={mins} readonly={hours >= 12} hours={hours}/>
-      <NextButton content={nextButtonContent()} nextable={hours !== null || mins !== null} nextPage={pageTraversal}/>
+      <NextButton content={nextButtonContent()} nextable={hours !== 0 || mins !== 0} nextPage={pageTraversal}/>
     </div>
   )
 }

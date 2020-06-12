@@ -38,7 +38,7 @@ function TimerInput({ symbol, placeholder, setTime, value, readonly, hours }) {
         type="number"
         onChange={handleChange}
         placeholder={placeholder}
-        value={value}
+        value={value === 0 ? "" : value}
         readOnly={readonly}
         onBlur={handleBlur}
       />
