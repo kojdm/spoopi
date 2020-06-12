@@ -3,10 +3,11 @@ import "./SpoopiContainer.css"
 
 import CategoriesContainer from "./categories/CategoriesContainer"
 import TimerContainer from "./timer/TimerContainer"
+import TracksContainer from "./tracks/TracksContainer"
 import BackButton from "./BackButton"
 
 const initialState = { current_page: "categories" }
-const pages = ["categories", "timer"]
+const pages = ["categories", "timer", "tracks"]
 const reducer = (state, action) => {
   switch(action) {
     case "next":
@@ -24,6 +25,7 @@ function SpoopiContainer() {
   const [state, pageTraversal] = useReducer(reducer, initialState)
   const [categories, setCategories] = useState([])
   const [duration, setDuration] = useState(0)
+  const [tracks, setTracks] = useState([])
 
   const handleCategories = (category_id) => {
     let new_categories = categories
@@ -48,10 +50,12 @@ function SpoopiContainer() {
     setDuration(new_duration)
   }
 
+
   return(
     <div className="SpoopiContainer">
       { state.current_page === "categories" && <CategoriesContainer handleCategories={handleCategories} selectedCategories={categories} pageTraversal={pageTraversal}/> }
       { state.current_page === "timer" && <TimerContainer handleDuration={handleDuration} pageTraversal={pageTraversal}/> }
+      { state.current_page === "tracks" && <TracksContainer duration={duration} categories={categories} tracks={tracks} handleTracks={setTracks} pageTraversal={pageTraversal}/> }
 
       { state.current_page !== "categories" && <BackButton backPage={pageTraversal}/>}
     </div>
