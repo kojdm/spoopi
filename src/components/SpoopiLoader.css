@@ -1,0 +1,29 @@
+.SpoopiLoader {
+  height: 75vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.spoopi-loader-spinner {
+  position: relative;
+  border: 25px solid var(--spoopi-black); /* Light grey */
+  border-top: 25px solid var(--spoopi-orange); /* Blue */
+  border-bottom: 25px solid var(--spoopi-orange); /* Blue */
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  animation: spin 1.25s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spoopi-loader-content {
+  position: absolute;
+  color: var(--spoopi-gray);
+}

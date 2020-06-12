@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react"
+import "./TracksContainer.css"
+
+import SpoopiLoader from "../SpoopiLoader"
 
 function TracksContainer({ duration, categories, tracks, handleTracks, pageTraversal }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    return
     if (duration === 0 || categories.length <= 0) return
 
+    // TODO: find out how to put url in env
     const base_url = "http://localhost:9292/generate_tracks"
     const url = base_url + "?seconds=" + duration + "&category_ids=" + categories.join(",")
 
@@ -18,9 +21,9 @@ function TracksContainer({ duration, categories, tracks, handleTracks, pageTrave
   }, [duration, categories, handleTracks])
 
   return(
-    <div>
+    <div className="TracksContainer">
       { loading
-          ? <h1>Generating Tracks</h1>
+          ? <SpoopiLoader/>
           : tracks.map(track => (
             <p>{track.name}</p>
           ))

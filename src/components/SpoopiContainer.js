@@ -50,7 +50,6 @@ function SpoopiContainer() {
     setDuration(new_duration)
   }
 
-
   return(
     <div className="SpoopiContainer">
       { state.current_page === "categories" && <CategoriesContainer handleCategories={handleCategories} selectedCategories={categories} pageTraversal={pageTraversal}/> }

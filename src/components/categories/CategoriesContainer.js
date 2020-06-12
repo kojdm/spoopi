@@ -21,6 +21,7 @@ function CategoriesContainer({ handleCategories, pageTraversal, selectedCategori
           setCountryCode(result.countryCode)
         })
 
+    // TODO: find out how to put url in env
     const query = countryCode ? "?country_code=" + countryCode : ""
     fetch("http://localhost:9292/categories" + query)
       .then(res => res.json())
