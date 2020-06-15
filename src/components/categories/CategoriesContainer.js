@@ -4,8 +4,7 @@ import "./CategoriesContainer.css"
 import CategoryBox from "./CategoryBox"
 import NextButton from "../NextButton"
 
-function CategoriesContainer({ handleCategories, pageTraversal, selectedCategories }) {
-  const [countryCode, setCountryCode] = useState("")
+function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pageTraversal, selectedCategories }) {
   const [allCategories, setAllCategories] = useState([])
   const [catCount, setCatCount] = useState(selectedCategories.length)
 
