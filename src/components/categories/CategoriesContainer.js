@@ -10,7 +10,12 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
 
   useEffect(() => {
     const local_categories = JSON.parse(localStorage.getItem("allCategories"))
-    if (local_categories) return setAllCategories(local_categories)
+    const local_countryCode = localStorage.getItem("countryCode")
+    if (local_categories && local_countryCode) {
+      setCountryCode(local_countryCode)
+      setAllCategories(local_categories)
+      return
+    }
 
     // get user's country code
     fetch("http://ip-api.com/json")
@@ -18,6 +23,7 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
       .then(
         (result) => {
           setCountryCode(result.countryCode)
+          localStorage.setItem("countryCode", result.countryCode)
         })
 
     // TODO: find out how to put url in env
@@ -30,7 +36,7 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
           localStorage.setItem("allCategories", JSON.stringify(result.categories))
         }
       )
-  }, [countryCode])
+  }, [countryCode, setCountryCode])
 
   const handleCatCount = (increment) => {
     const new_count = catCount + increment
