@@ -2,7 +2,7 @@
   background-color: var(--spoopi-gray);
   box-shadow: 0 0 30px black;
   position: fixed;
-  bottom: 8vh;
+  bottom: 10vh;
   left: 0;
   padding: 1rem 1rem 1rem 2rem;
   opacity: 0.8;
@@ -23,9 +23,6 @@
 }
 
 @media screen and (max-width: 800px) {
-  .BackButton {
-    bottom: 40px;
-  }
   .back-button-content {
     font-size: 1rem;
   }
