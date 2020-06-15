@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react"
 import "./TracksContainer.css"
 
 import SpoopiLoader from "../SpoopiLoader"
+import TrackBox from "./TrackBox"
 
-function TracksContainer({ duration, categories, tracks, handleTracks, pageTraversal }) {
+function TracksContainer({ duration, categories, countryCode, tracks, handleTracks, pageTraversal }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -11,21 +12,28 @@ function TracksContainer({ duration, categories, tracks, handleTracks, pageTrave
 
     // TODO: find out how to put url in env
     const base_url = "http://localhost:9292/generate_tracks"
-    const url = base_url + "?seconds=" + duration + "&category_ids=" + categories.join(",")
+    const url = base_url + "?seconds=" + duration + "&category_ids=" + categories.join(",") + "&country_code=" + countryCode
 
     fetch(url).then(res => res.json()).then((result) => {
       setLoading(false)
       handleTracks(result.spoopi.tracks)
     })
 
-  }, [duration, categories, handleTracks])
+  }, [duration, categories, countryCode, handleTracks])
+
+  const useIframe = tracks.length <= 20
 
   return(
-    <div className="TracksContainer">
+    <div className={ loading
+        ? ""
+        : "TracksContainer"  + ( useIframe ? " iframe-columns" : " spoopi-tracks-columns") }>
       { loading
           ? <SpoopiLoader/>
           : tracks.map(track => (
-            <p>{track.name}</p>
+            <TrackBox
+              track={track}
+              useIframe={useIframe}
+            />
           ))
       }
     </div>
