@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react'
+import React, { useState, useReducer, useEffect } from 'react'
 import "./SpoopiContainer.css"
 
 import CategoriesContainer from "./categories/CategoriesContainer"
@@ -7,7 +7,7 @@ import TracksContainer from "./tracks/TracksContainer"
 import BackButton from "./BackButton"
 
 const initialState = { current_page: "categories" }
-const pages = ["categories", "timer", "tracks"]
+const pages = ["categories", "timer", "tracks", "playlist"]
 const reducer = (state, action) => {
   switch(action) {
     case "next":
@@ -28,6 +28,30 @@ function SpoopiContainer() {
   const [categories, setCategories] = useState([])
   const [duration, setDuration] = useState(0)
   const [tracks, setTracks] = useState([])
+  const [name, setName] = useState("")
+  const [accessToken, setAccessToken] = useState("")
+  const [playlist, setPlaylist] = useState({})
+
+  useEffect(() => {
+    window.addEventListener("message", (event) => {
+      const access_token = event.data.access_token
+      if (!access_token) {
+        return
+      }
+
+      setAccessToken(access_token)
+    }, false)
+  }, [])
+
+  useEffect(() => {
+    if (window.location.hash.length > 0) {
+      const hash = window.location.hash
+      const access_token = hash.substring(hash.indexOf("=") + 1, hash.indexOf("&"))
+
+      window.opener.postMessage({access_token: access_token})
+      window.close()
+    }
+  }, [])
 
   const handleCategories = (category_id) => {
     let new_categories = categories
@@ -56,7 +80,7 @@ function SpoopiContainer() {
     <div className="SpoopiContainer">
       { state.current_page === "categories" && <CategoriesContainer countryCode={countryCode} setCountryCode={setCountryCode} handleCategories={handleCategories} selectedCategories={categories} pageTraversal={pageTraversal}/> }
       { state.current_page === "timer" && <TimerContainer duration={duration} handleDuration={handleDuration} pageTraversal={pageTraversal}/> }
-      { state.current_page === "tracks" && <TracksContainer duration={duration} categories={categories} countryCode={countryCode} tracks={tracks} handleTracks={setTracks} pageTraversal={pageTraversal} setBackable={setBackable}/> }
+      { state.current_page === "tracks" && <TracksContainer duration={duration} categories={categories} countryCode={countryCode} tracks={tracks} handleTracks={setTracks} pageTraversal={pageTraversal} setBackable={setBackable} name={name} setName={setName} accessToken={accessToken} setPlaylist={setPlaylist}/> }
 
       { state.current_page !== "categories" && <BackButton backPage={pageTraversal} backable={backable}/>}
     </div>

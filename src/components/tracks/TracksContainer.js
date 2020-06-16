@@ -2,14 +2,26 @@ import React, { useEffect, useState } from "react"
 import "./TracksContainer.css"
 
 import SpoopiLoader from "../SpoopiLoader"
-import NextButton from "../NextButton"
+import AddToSpotifyButton from "../AddToSpotifyButton"
 import TrackBox from "./TrackBox"
 
-function TracksContainer({ duration, categories, countryCode, tracks, handleTracks, pageTraversal, setBackable }) {
+function TracksContainer({
+  duration,
+  categories,
+  countryCode,
+  tracks,
+  handleTracks,
+  pageTraversal,
+  setBackable,
+  name,
+  setName,
+  accessToken,
+  setPlaylist
+}) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (duration === 0 || categories.length <= 0) return
+    if (duration <= 0 || categories.length <= 0) return
     setBackable(false)
 
     // TODO: find out how to put url in env
@@ -24,8 +36,32 @@ function TracksContainer({ duration, categories, countryCode, tracks, handleTrac
 
   }, [duration, categories, countryCode, handleTracks, setBackable])
 
+  useEffect(() => {
+    if (!accessToken || tracks.length <= 0 || categories.length <= 0 || duration <= 0 || name.length <= 0) {
+      return
+    }
+
+    // TODO: add url to env
+    const base_url = "http://localhost:9292/create_playlist"
+    const track_uris = tracks.map(tr => tr.uri).join(",")
+    const params = {
+      access_token: accessToken,
+      track_uris: track_uris,
+      pl_name: name,
+      category_ids: categories.join(",")
+    }
+
+    fetch(base_url, {
+      method: "POST",
+      body: JSON.stringify(params)
+    }).then(res => res.json()).then((result) => {
+      setPlaylist(result.new_playlist)
+    })
+
+    pageTraversal("next")
+  }, [accessToken])
+
   const useIframe = tracks.length <= 20
-  const nextButtonContent = "Add to Spotify"
 
   return(
     <div className={
@@ -39,7 +75,7 @@ function TracksContainer({ duration, categories, countryCode, tracks, handleTrac
         : tracks.map(track => (
           <TrackBox track={track} useIframe={useIframe}/>))
       }
-          <NextButton content={nextButtonContent} nextable={!loading} nextPage={pageTraversal}/>
+          <AddToSpotifyButton nextable={!loading} nextPage={pageTraversal} name={name} setName={setName}/>
     </div>
   )
 }

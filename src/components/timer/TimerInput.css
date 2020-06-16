@@ -4,7 +4,7 @@
   width: 40%;
 }
 
-input {
+.TimerInput > input {
   border: none;
   background-color: var(--spoopi-black);
   border-bottom: 5px solid var(--spoopi-orange);

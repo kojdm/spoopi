@@ -1,0 +1,65 @@
+.AddToSpotifyButton-container {
+  box-shadow: 0 0 30px black;
+  position: fixed;
+  bottom: 10vh;
+  right: 0;
+}
+
+.AddToSpotifyButton {
+  background-color: var(--spoopi-orange);
+  padding: 1rem 2rem 1rem 1rem;
+  opacity: 0.8;
+}
+
+.nextable {
+  background-color: var(--spoopi-orange) !important;
+  transition: padding-right 0.5s;
+}
+
+.nextable:hover {
+  cursor: pointer;
+  padding-right: 4rem;
+  opacity: 1;
+}
+
+.addtospotify-button-content {
+  font-size: 1.75vw;
+}
+
+.next-arrow {
+  font-weight: bold;
+  margin: 0 0 0 1vw;
+}
+
+.spoopi-name {
+  background-color: var(--spoopi-orange);
+  height: 10vw;
+  opacity: 0.8;
+  font-size: 1.75vw;
+  padding: 20px;
+}
+
+.spoopi-name > input {
+  display: block;
+  width: 100%;
+  border: none;
+  color: var(--spoopi-text);
+  background-color: var(--spoopi-orange);
+  border-bottom: 2px solid var(--spoopi-text);
+  font-size: 1.75vw;
+  padding: 1vw;
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .addtospotify-button-content {
+    font-size: 1rem;
+  }
+  .spoopi-name {
+    height: 100px;
+    font-size: 1rem;
+  }
+  .spoopi-name > input {
+    font-size: 1rem;
+  }
+}
