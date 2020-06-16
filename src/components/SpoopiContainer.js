@@ -23,6 +23,7 @@ const reducer = (state, action) => {
 
 function SpoopiContainer() {
   const [state, pageTraversal] = useReducer(reducer, initialState)
+  const [backable, setBackable] = useState(true)
   const [countryCode, setCountryCode] = useState("")
   const [categories, setCategories] = useState([])
   const [duration, setDuration] = useState(0)
@@ -55,9 +56,9 @@ function SpoopiContainer() {
     <div className="SpoopiContainer">
       { state.current_page === "categories" && <CategoriesContainer countryCode={countryCode} setCountryCode={setCountryCode} handleCategories={handleCategories} selectedCategories={categories} pageTraversal={pageTraversal}/> }
       { state.current_page === "timer" && <TimerContainer duration={duration} handleDuration={handleDuration} pageTraversal={pageTraversal}/> }
-      { state.current_page === "tracks" && <TracksContainer duration={duration} categories={categories} countryCode={countryCode} tracks={tracks} handleTracks={setTracks} pageTraversal={pageTraversal}/> }
+      { state.current_page === "tracks" && <TracksContainer duration={duration} categories={categories} countryCode={countryCode} tracks={tracks} handleTracks={setTracks} pageTraversal={pageTraversal} setBackable={setBackable}/> }
 
-      { state.current_page !== "categories" && <BackButton backPage={pageTraversal}/>}
+      { state.current_page !== "categories" && <BackButton backPage={pageTraversal} backable={backable}/>}
     </div>
   )
 }
