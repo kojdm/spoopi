@@ -8,8 +8,8 @@ function BackButton({ backPage, backable }) {
 
   return(
     backable
-    ? <div className={"BackButton"}>
-        <div className="back-button-content" onClick={handleBackPage}>
+    ? <div className={"BackButton"} onClick={handleBackPage}>
+        <div className="back-button-content">
           <span className="back-arrow">&#171;</span>Back 
         </div>
       </div>

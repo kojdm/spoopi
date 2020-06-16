@@ -7,8 +7,8 @@ function NextButton({ content, nextable, nextPage }) {
   }
 
   return(
-    <div className={"NextButton" + (nextable ? " nextable" : "")}>
-      <div className="next-button-content" onClick={handleNextPage}>
+    <div className={"NextButton" + (nextable ? " nextable" : "")} onClick={handleNextPage}>
+      <div className="next-button-content">
         {content}
         { nextable && <span className="next-arrow">&#187;</span> }
       </div>
