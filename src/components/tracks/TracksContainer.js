@@ -22,7 +22,7 @@ function TracksContainer({ duration, categories, countryCode, tracks, handleTrac
       setBackable(true)
     })
 
-  }, [duration, categories, countryCode, handleTracks])
+  }, [duration, categories, countryCode, handleTracks, setBackable])
 
   const useIframe = tracks.length <= 20
   const nextButtonContent = "Add to Spotify"

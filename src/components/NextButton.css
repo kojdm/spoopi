@@ -8,22 +8,24 @@
   opacity: 0.8;
 }
 
-.next-button-content {
-  font-size: 1.75vw;
+.nextable {
+  background-color: var(--spoopi-orange) !important;
+  transition: padding-right 0.5s;
 }
 
-.NextButton:hover {
+.nextable:hover {
   cursor: pointer;
+  padding-right: 4rem;
   opacity: 1;
+}
+
+.next-button-content {
+  font-size: 1.75vw;
 }
 
 .next-arrow {
   font-weight: bold;
   margin: 0 0 0 1vw;
-}
-
-.nextable {
-  background-color: var(--spoopi-orange) !important;
 }
 
 @media screen and (max-width: 800px) {
