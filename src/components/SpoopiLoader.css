@@ -27,3 +27,16 @@
   position: absolute;
   color: var(--spoopi-gray);
 }
+
+.spoopi-loader-warning {
+  animation: 3s ease-out 0s 1 fadeIn;
+  position: absolute;
+  transform: translate(0, 25vh);
+  color: var(--spoopi-gray);
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
