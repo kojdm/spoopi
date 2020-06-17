@@ -30,7 +30,7 @@ function App() {
         <SpoopiContainer current_page={state.current_page} pageTraversal={pageTraversal}/>
       </div>
       <div className="column right">
-        <SpoopiNav/>
+        <SpoopiNav current_page={state.current_page}/>
       </div>
     </div>
   )
