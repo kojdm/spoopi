@@ -22,6 +22,10 @@ body {
   color: var(--spoopi-text);
 }
 
+.cursive {
+  font-family: 'Indie Flower', cursive;
+}
+
 #root {
   flex: 1 0 auto;
 }

@@ -11,7 +11,8 @@
 }
 
 .spoopi-description {
-  font-size: 2.5vw;
+  transform: translate(0, -1.75vw);
+  font-size: 2vw;
   color: var(--spoopi-orange)
 }
 
