@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./SpoopiContainer.css"
 
 import CategoriesContainer from "./categories/CategoriesContainer"
@@ -7,25 +7,7 @@ import TracksContainer from "./tracks/TracksContainer"
 import PlaylistContainer from "./playlist/PlaylistContainer"
 import BackButton from "./BackButton"
 
-const initialState = { current_page: "categories" }
-const pages = ["categories", "timer", "tracks", "playlist"]
-const reducer = (state, action) => {
-  switch(action) {
-    case "next":
-      const next_page_index = pages.indexOf(state.current_page) + 1
-      return { current_page: pages[next_page_index] }
-    case "back":
-      const previous_page_index = pages.indexOf(state.current_page) - 1
-      return { current_page: pages[previous_page_index] }
-    case "reload":
-      return window.location.reload()
-    default:
-      throw new Error()
-  }
-}
-
-function SpoopiContainer() {
-  const [state, pageTraversal] = useReducer(reducer, initialState)
+function SpoopiContainer({ current_page, pageTraversal }) {
   const [backable, setBackable] = useState(true)
   const [countryCode, setCountryCode] = useState("")
   const [categories, setCategories] = useState([])
@@ -81,13 +63,13 @@ function SpoopiContainer() {
 
   return(
     <div className="SpoopiContainer">
-      { state.current_page === "categories" && <CategoriesContainer countryCode={countryCode} setCountryCode={setCountryCode} handleCategories={handleCategories} selectedCategories={categories} pageTraversal={pageTraversal}/> }
-      { state.current_page === "timer" && <TimerContainer duration={duration} handleDuration={handleDuration} pageTraversal={pageTraversal}/> }
-      { state.current_page === "tracks" && <TracksContainer duration={duration} categories={categories} countryCode={countryCode} tracks={tracks} handleTracks={setTracks} pageTraversal={pageTraversal} setBackable={setBackable} name={name} setName={setName} accessToken={accessToken} setPlaylist={setPlaylist}/> }
-      { state.current_page === "playlist" && <PlaylistContainer playlist={playlist} pageTraversal={pageTraversal}/> }
+      { current_page === "categories" && <CategoriesContainer countryCode={countryCode} setCountryCode={setCountryCode} handleCategories={handleCategories} selectedCategories={categories} pageTraversal={pageTraversal}/> }
+      { current_page === "timer" && <TimerContainer duration={duration} handleDuration={handleDuration} pageTraversal={pageTraversal}/> }
+      { current_page === "tracks" && <TracksContainer duration={duration} categories={categories} countryCode={countryCode} tracks={tracks} handleTracks={setTracks} pageTraversal={pageTraversal} setBackable={setBackable} name={name} setName={setName} accessToken={accessToken} setPlaylist={setPlaylist}/> }
+      { current_page === "playlist" && <PlaylistContainer playlist={playlist} pageTraversal={pageTraversal}/> }
 
-      { state.current_page !== "categories"
-          && state.current_page !== "playlist"
+      { current_page !== "categories"
+          && current_page !== "playlist"
           && <BackButton backPage={pageTraversal} backable={backable}/>}
     </div>
   )
