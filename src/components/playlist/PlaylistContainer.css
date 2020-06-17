@@ -1,0 +1,8 @@
+.PlaylistContainer {
+}
+
+.playlist-iframe {
+  height: 75vh;
+  width: 100%;
+  padding: 5%;
+}

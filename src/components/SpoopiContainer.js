@@ -4,6 +4,7 @@ import "./SpoopiContainer.css"
 import CategoriesContainer from "./categories/CategoriesContainer"
 import TimerContainer from "./timer/TimerContainer"
 import TracksContainer from "./tracks/TracksContainer"
+import PlaylistContainer from "./playlist/PlaylistContainer"
 import BackButton from "./BackButton"
 
 const initialState = { current_page: "categories" }
@@ -16,6 +17,8 @@ const reducer = (state, action) => {
     case "back":
       const previous_page_index = pages.indexOf(state.current_page) - 1
       return { current_page: pages[previous_page_index] }
+    case "reload":
+      return window.location.reload()
     default:
       throw new Error()
   }
@@ -81,8 +84,11 @@ function SpoopiContainer() {
       { state.current_page === "categories" && <CategoriesContainer countryCode={countryCode} setCountryCode={setCountryCode} handleCategories={handleCategories} selectedCategories={categories} pageTraversal={pageTraversal}/> }
       { state.current_page === "timer" && <TimerContainer duration={duration} handleDuration={handleDuration} pageTraversal={pageTraversal}/> }
       { state.current_page === "tracks" && <TracksContainer duration={duration} categories={categories} countryCode={countryCode} tracks={tracks} handleTracks={setTracks} pageTraversal={pageTraversal} setBackable={setBackable} name={name} setName={setName} accessToken={accessToken} setPlaylist={setPlaylist}/> }
+      { state.current_page === "playlist" && <PlaylistContainer playlist={playlist} pageTraversal={pageTraversal}/> }
 
-      { state.current_page !== "categories" && <BackButton backPage={pageTraversal} backable={backable}/>}
+      { state.current_page !== "categories"
+          && state.current_page !== "playlist"
+          && <BackButton backPage={pageTraversal} backable={backable}/>}
     </div>
   )
 }

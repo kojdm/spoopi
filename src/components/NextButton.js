@@ -1,8 +1,12 @@
 import React from "react"
 import "./NextButton.css"
 
-function NextButton({ content, nextable, nextPage }) {
+function NextButton({ content, nextable, reload, nextPage }) {
   const handleNextPage = () => {
+    if (reload) {
+      return nextable && nextPage("reload")
+    }
+
     nextable && nextPage("next")
   }
 

@@ -22,6 +22,7 @@ function AddToSpotifyButton({ content, nextable, name, setName }) {
   }
 
   const handleClick = () => {
+    if (!nextable) return
     if (!showSpoopiName) return setShowSpoopiName(true)
 
     if (name.length <= 0) {
