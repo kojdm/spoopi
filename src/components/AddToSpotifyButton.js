@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import "./AddToSpotifyButton.css"
 
-function AddToSpotifyButton({ content, nextable, nextPage, name, setName }) {
+function AddToSpotifyButton({ content, nextable, name, setName }) {
   const [showSpoopiName, setShowSpoopiName] = useState(false)
   const [placeholderWords, setPlaceholderWords] = useState([])
 
