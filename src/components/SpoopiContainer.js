@@ -6,6 +6,7 @@ import TimerContainer from "./timer/TimerContainer"
 import TracksContainer from "./tracks/TracksContainer"
 import PlaylistContainer from "./playlist/PlaylistContainer"
 import BackButton from "./BackButton"
+import SpoopiTip from "./SpoopiTip"
 
 function SpoopiContainer({ current_page, pageTraversal }) {
   const [backable, setBackable] = useState(true)
@@ -70,7 +71,10 @@ function SpoopiContainer({ current_page, pageTraversal }) {
 
       { current_page !== "categories"
           && current_page !== "playlist"
-          && <BackButton backPage={pageTraversal} backable={backable}/>}
+          && <BackButton backPage={pageTraversal} backable={backable}/>
+      }
+
+          <SpoopiTip current_page={current_page}/>
     </div>
   )
 }

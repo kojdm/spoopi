@@ -1,12 +1,106 @@
 .SpoopiTip {
-  font-size: 30px;
-  line-height: 1.1;
+  z-index: -1;
+  text-align: center;
+  position: relative;
+}
+
+.spoopi-tip-content {
+  font-size: 1.75rem;
+  line-height: 1.2;
   white-space: pre-wrap;
-  opacity: 0.7;
+  color: var(--spoopi-gray);
+  font-weight: bold;
+}
+
+.spoopi-arrow {
+  display: block;
+  position: absolute;
+  width: 4rem;
+  opacity: 0.2;
+}
+
+/* CATEGORIES PAGE */
+.categories-tip-container {
+  position: fixed;
+  width: 20vw;
+  top: 60vh;
+  right: 4vw;
+  text-align: left;
+}
+.categories-arrow {
+  transform: scaleX(-1) translate(0, 10px);
+}
+@media screen and (max-width: 800px) {
+  .categories-tip-container {
+    position: static;
+    width: 50%;
+    margin-top: 10px;
+    text-align: right;
+  }
+  .categories-arrow {
+    transform: rotate(-85deg) translate(70px, 50vw);
+  }
+}
+
+/* TIMER PAGE */
+.timer-tip-container{
+  width: 400px;
+  position: absolute;
+  text-align: right;
+  bottom: 5vh;
+  left: 15vw;
+}
+.timer-arrow {
+  transform: rotate(-85deg) translate(115px, 385px);
+}
+@media screen and (max-width: 800px) {
+  .timer-tip-container{
+    width: 250px;
+    bottom: 20vh;
+    left: 7.5vw;
+  }
+  .timer-arrow {
+    transform: rotate(-85deg) translate(70px, 250px);
+  }
+
+}
+
+/* TRACKS PAGE */
+.tracks-tip-container{
+  position: absolute;
+  width: 20vw;
+  top: 65vh;
+  right: -22vw;
+  text-align: left;
+}
+.tracks-arrow {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  .tracks-tip-container{
+    position: static;
+    width: 100%;
+    margin-top: 5px;
+    right: 4vw;
+    text-align: center;
+  }
+  .tracks-arrow {
+    display: none;
+  }
+}
+
+/* PLAYLIST PAGE */
+.playlist-tip-container {
+}
+.playlist-arrow {
+  display: none;
 }
 
 @media screen and (max-width: 800px) {
-  .SpoopiTip {
-    font-size: 20px;
+  .spoopi-tip-content {
+    font-size: 1.25rem;
+  }
+  .spoopi-arrow {
+    width: 2.5rem;
   }
 }
