@@ -18,7 +18,7 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
     }
 
     // get user's country code
-    fetch("http://ip-api.com/json")
+    fetch(process.env.REACT_APP_IP_API_URL)
       .then(res => res.json())
       .then(
         (result) => {
@@ -26,9 +26,8 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
           localStorage.setItem("countryCode", result.countryCode)
         })
 
-    // TODO: find out how to put url in env
     const query = countryCode ? "?country_code=" + countryCode : ""
-    fetch("http://localhost:9292/categories" + query)
+    fetch(process.env.REACT_APP_SPOOPI_API_URL + "/categories" + query)
       .then(res => res.json())
       .then(
         (result) => {

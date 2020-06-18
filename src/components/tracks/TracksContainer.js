@@ -24,8 +24,7 @@ function TracksContainer({
     if (duration <= 0 || categories.length <= 0) return
     setBackable(false)
 
-    // TODO: find out how to put url in env
-    const base_url = "http://localhost:9292/generate_tracks"
+    const base_url = process.env.REACT_APP_SPOOPI_API_URL + "/generate_tracks"
     const url = base_url + "?seconds=" + duration + "&category_ids=" + categories.join(",") + "&country_code=" + countryCode
 
     fetch(url).then(res => res.json()).then((result) => {
@@ -41,8 +40,7 @@ function TracksContainer({
       return
     }
 
-    // TODO: add url to env
-    const base_url = "http://localhost:9292/create_playlist"
+    const base_url = process.env.REACT_APP_SPOOPI_API_URL + "/create_playlist"
     const track_uris = tracks.map(tr => tr.uri).join(",")
     const params = {
       access_token: accessToken,

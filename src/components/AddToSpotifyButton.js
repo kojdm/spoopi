@@ -6,8 +6,7 @@ function AddToSpotifyButton({ content, nextable, name, setName }) {
   const [placeholderWords, setPlaceholderWords] = useState([])
 
   useEffect(() => {
-    // TODO: find out how to put url in env
-    const base_url = "https://random-word-api.herokuapp.com/word?swear=0&"
+    const base_url = process.env.REACT_APP_RANDOM_WORD_API_URL + "/word?swear=0&"
     const word_count = "number=" + 2
 
     fetch(base_url + word_count)
@@ -29,8 +28,7 @@ function AddToSpotifyButton({ content, nextable, name, setName }) {
       setName(placeholder())
     }
 
-    // TODO: env this link
-    const url = "http://localhost:9292/authenticate_user"
+    const url = process.env.REACT_APP_SPOOPI_API_URL + "/authenticate_user"
     window.open(url, "_blank", "titlebar=no, status=no");
   }
 
