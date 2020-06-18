@@ -11,7 +11,8 @@ function SpoopiTip({ current_page }) {
       tipcon = `choose which categories you want your playlist to have`
     }
     else if (current_page === "timer") {
-      tipcon = `select a duration between 15 mins and 12 hours`
+      tipcon = `select a duration between
+15 mins and 12 hours`
     }
     else if (current_page === "tracks") {
       tipcon = `pro-tip: shorter playlists' songs can be previewed before adding to spotify`
