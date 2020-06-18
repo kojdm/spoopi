@@ -40,12 +40,12 @@ body {
   padding: 5px 0;
 }
 
-.footer a {
+a {
   text-decoration: none;
   color: var(--spoopi-orange);
 }
 
-.footer a:visited {
+a:visited {
   color: var(--spoopi-orange);
 }
 

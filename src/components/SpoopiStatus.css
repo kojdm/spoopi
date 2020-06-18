@@ -1,0 +1,26 @@
+.SpoopiStatus {
+  background-color: var(--spoopi-gray);
+  padding: 15px;
+  font-size: 1.25vw;
+}
+
+.SpoopiStatus th, td {
+  padding: 5px;
+}
+
+.t-key {
+  color: var(--spoopi-orange);
+}
+
+@media screen and (max-width: 800px) {
+  .SpoopiStatus {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+  .SpoopiStatus > table {
+    margin: auto;
+  }
+}
+

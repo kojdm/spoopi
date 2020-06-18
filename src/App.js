@@ -7,7 +7,6 @@ import SpoopiContainer from "./components/SpoopiContainer"
 const initialPageState = {
   current_page: "categories",
 }
-
 const pages = ["categories", "timer", "tracks", "playlist"]
 const pageReducer = (state, action) => {
   switch(action) {
@@ -32,6 +31,14 @@ function App() {
   const [name, setName] = useState("")
   const [playlist, setPlaylist] = useState({})
 
+  const spoopiPlaylist = {
+    categories: categories,
+    duration: duration,
+    track_count: tracks.length,
+    name: name,
+    spotify_url: playlist.spotify_url
+  }
+
   return(
     <div className="App">
       <div className="column left">
@@ -46,7 +53,7 @@ function App() {
         />
       </div>
       <div className="column right">
-        <SpoopiNav current_page={pageState.current_page}/>
+        <SpoopiNav current_page={pageState.current_page} spoopiPlaylist={spoopiPlaylist}/>
       </div>
     </div>
   )
