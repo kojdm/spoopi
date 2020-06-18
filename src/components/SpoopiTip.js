@@ -17,7 +17,7 @@ function SpoopiTip({ current_page }) {
       tipcon = `pro-tip: shorter playlists' songs can be previewed before adding to spotify`
     }
     else if (current_page === "playlist") {
-      tipcon = `enjoy your new spoopi playlist!`
+      tipcon = `enjoy your spoopi playlist!`
     }
 
     return setTipContent(tipcon)
