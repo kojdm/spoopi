@@ -1,12 +1,12 @@
 import React from "react"
 import "./SpoopiLoader.css"
 
-function SpoopiLoader({ content }) {
+function SpoopiLoader({ content, warning }) {
   return(
     <div className="SpoopiLoader">
       <div className="spoopi-loader-spinner"></div>
-      <div className="spoopi-loader-content">Generating tracks...</div>
-      <div className="spoopi-loader-warning">This could take a while for longer playlists</div>
+      <div className="spoopi-loader-content">{content}</div>
+      <div className="spoopi-loader-warning">{warning || ""}</div>
     </div>
   )
 }
