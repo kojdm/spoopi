@@ -29,6 +29,9 @@
 }
 
 @media screen and (max-width: 800px) {
+  .NextButton {
+    padding: 0.75rem 1.5rem 0.75rem 0.75rem;
+  }
   .next-button-content {
     font-size: 1rem;
   }

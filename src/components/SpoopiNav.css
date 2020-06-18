@@ -40,14 +40,16 @@
   .spoopi-intro{
     font-size: 1.5rem;
     position: absolute;
+    left: 0;
     opacity: 1;
-    padding: 20px;
+    padding: 15px;
+    margin: 15px;
     background-color: var(--spoopi-gray);
   }
   .spoopi-info {
     display: block;
     position: absolute;
-    top: 40px;
+    top: 30px;
     right: 20px;
     height: 40px;
     width: 40px;

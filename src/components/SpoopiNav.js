@@ -13,7 +13,8 @@ function SpoopiNav({ current_page }) {
     <div className="SpoopiNav">
       <div className="spoopi-logo cursive">spoopi</div>
       <div className="spoopi-description">(spo)tify (p)laylist t(i)mer</div>
-      <div className={"spoopi-info" + (showInfo ? " info-clicked" : "")} onClick={handleShowInfo}>?</div>
+    { current_page === "categories" &&
+      <div className={"spoopi-info" + (showInfo ? " info-clicked" : "")} onClick={handleShowInfo}>?</div> }
     { current_page === "categories" && showInfo &&
       <div className="spoopi-intro cursive">{introText}</div> }
     </div>
