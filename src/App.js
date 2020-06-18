@@ -4,9 +4,12 @@ import './App.css';
 import SpoopiNav from "./components/SpoopiNav"
 import SpoopiContainer from "./components/SpoopiContainer"
 
-const initialState = { current_page: "categories" }
+const initialPageState = {
+  current_page: "categories",
+}
+
 const pages = ["categories", "timer", "tracks", "playlist"]
-const reducer = (state, action) => {
+const pageReducer = (state, action) => {
   switch(action) {
     case "next":
       const next_page_index = pages.indexOf(state.current_page) + 1
@@ -22,15 +25,15 @@ const reducer = (state, action) => {
 }
 
 function App() {
-  const [state, pageTraversal] = useReducer(reducer, initialState)
+  const [pageState, pageTraversal] = useReducer(pageReducer, initialPageState)
 
   return(
     <div className="App">
       <div className="column left">
-        <SpoopiContainer current_page={state.current_page} pageTraversal={pageTraversal}/>
+        <SpoopiContainer current_page={pageState.current_page} pageTraversal={pageTraversal}/>
       </div>
       <div className="column right">
-        <SpoopiNav current_page={state.current_page}/>
+        <SpoopiNav current_page={pageState.current_page}/>
       </div>
     </div>
   )
