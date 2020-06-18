@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useState, useReducer } from 'react';
 import './App.css';
 
 import SpoopiNav from "./components/SpoopiNav"
@@ -26,11 +26,24 @@ const pageReducer = (state, action) => {
 
 function App() {
   const [pageState, pageTraversal] = useReducer(pageReducer, initialPageState)
+  const [categories, setCategories] = useState([])
+  const [duration, setDuration] = useState(0)
+  const [tracks, setTracks] = useState([])
+  const [name, setName] = useState("")
+  const [playlist, setPlaylist] = useState({})
 
   return(
     <div className="App">
       <div className="column left">
-        <SpoopiContainer current_page={pageState.current_page} pageTraversal={pageTraversal}/>
+        <SpoopiContainer
+          current_page={pageState.current_page}
+          pageTraversal={pageTraversal}
+          categories={categories} setCategories={setCategories}
+          duration={duration} setDuration={setDuration}
+          tracks={tracks} setTracks={setTracks}
+          name={name} setName={setName}
+          playlist={playlist} setPlaylist={setPlaylist}
+        />
       </div>
       <div className="column right">
         <SpoopiNav current_page={pageState.current_page}/>

@@ -8,15 +8,18 @@ import PlaylistContainer from "./playlist/PlaylistContainer"
 import BackButton from "./BackButton"
 import SpoopiTip from "./SpoopiTip"
 
-function SpoopiContainer({ current_page, pageTraversal }) {
+function SpoopiContainer({
+  current_page,
+  pageTraversal,
+  categories, setCategories,
+  duration, setDuration,
+  tracks, setTracks,
+  name, setName,
+  playlist, setPlaylist
+}) {
   const [backable, setBackable] = useState(true)
   const [countryCode, setCountryCode] = useState("")
-  const [categories, setCategories] = useState([])
-  const [duration, setDuration] = useState(0)
-  const [tracks, setTracks] = useState([])
-  const [name, setName] = useState("")
   const [accessToken, setAccessToken] = useState("")
-  const [playlist, setPlaylist] = useState({})
 
   useEffect(() => {
     window.addEventListener("message", (event) => {
