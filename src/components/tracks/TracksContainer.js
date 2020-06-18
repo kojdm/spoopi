@@ -71,7 +71,7 @@ function TracksContainer({
       }>
       {
         loading
-        ? <SpoopiLoader content="Generating tracks..." warning="This could take a while for longer playlists"/>
+        ? <SpoopiLoader content="Generating tracks..." warning="This could take a while for playlists with multiple categories"/>
         : tracks.map(track => (
           <TrackBox track={track} useIframe={useIframe}/>))
       }
