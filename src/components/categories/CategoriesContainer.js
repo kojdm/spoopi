@@ -19,11 +19,13 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
 
     // get user's country code
     fetch(process.env.REACT_APP_IP_API_URL)
-      .then(res => res.json())
+      .then(res => res.text())
       .then(
         (result) => {
-          setCountryCode(result.countryCode)
-          localStorage.setItem("countryCode", result.countryCode)
+          const ind = result.indexOf("loc")
+          const country_code = result.slice(ind + 4, ind + 6)
+          setCountryCode(country_code)
+          localStorage.setItem("countryCode", country_code)
         })
 
     const query = countryCode ? "?country_code=" + countryCode : ""
