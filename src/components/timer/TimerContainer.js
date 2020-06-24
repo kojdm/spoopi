@@ -72,7 +72,7 @@ function TimerContainer({ duration, handleDuration, pageTraversal }) {
 
     if (arr.length <= 0) return "Enter a duration for your playlist"
 
-    return "Create a " + formatted_time + " playlist"
+    return "Create " + formatted_time + " playlist"
   }
 
   return(
