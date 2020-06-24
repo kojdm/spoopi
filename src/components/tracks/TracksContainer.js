@@ -46,7 +46,8 @@ function TracksContainer({
       access_token: accessToken,
       track_uris: track_uris,
       pl_name: name,
-      category_ids: categories.join(",")
+      category_ids: categories.join(","),
+      seconds: duration
     }
 
     fetch(base_url, {
