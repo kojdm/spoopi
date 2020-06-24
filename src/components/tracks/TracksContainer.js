@@ -67,13 +67,15 @@ function TracksContainer({
         ? ""
         : "TracksContainer"  + ( useIframe ? " iframe-columns" : " spoopi-tracks-columns")
       }>
-      {
-        loading
+      { loading
         ? <SpoopiLoader content="Generating tracks..." warning="This could take a while for longer playlists"/>
         : tracks.map(track => (
           <TrackBox track={track} useIframe={useIframe}/>))
       }
-          <AddToSpotifyButton nextable={!loading} nextPage={pageTraversal} name={name} setName={setName}/>
+      { loading
+          ? null
+          : <AddToSpotifyButton nextable={!loading} nextPage={pageTraversal} name={name} setName={setName}/>
+      }
     </div>
   )
 }
