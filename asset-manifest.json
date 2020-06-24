@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/spoopi/static/css/main.30c17ceb.chunk.css",
-    "main.js": "/spoopi/static/js/main.14dd92ce.chunk.js",
-    "main.js.map": "/spoopi/static/js/main.14dd92ce.chunk.js.map",
+    "main.js": "/spoopi/static/js/main.cb7ef027.chunk.js",
+    "main.js.map": "/spoopi/static/js/main.cb7ef027.chunk.js.map",
     "runtime-main.js": "/spoopi/static/js/runtime-main.c91185d1.js",
     "runtime-main.js.map": "/spoopi/static/js/runtime-main.c91185d1.js.map",
     "static/js/2.b875e78d.chunk.js": "/spoopi/static/js/2.b875e78d.chunk.js",
     "static/js/2.b875e78d.chunk.js.map": "/spoopi/static/js/2.b875e78d.chunk.js.map",
     "index.html": "/spoopi/index.html",
-    "precache-manifest.cdf1b7357f5141a1a58bb86647e407ca.js": "/spoopi/precache-manifest.cdf1b7357f5141a1a58bb86647e407ca.js",
+    "precache-manifest.8ab739762586a09ec57d3f4cf33a7f07.js": "/spoopi/precache-manifest.8ab739762586a09ec57d3f4cf33a7f07.js",
     "service-worker.js": "/spoopi/service-worker.js",
     "static/css/main.30c17ceb.chunk.css.map": "/spoopi/static/css/main.30c17ceb.chunk.css.map",
     "static/js/2.b875e78d.chunk.js.LICENSE.txt": "/spoopi/static/js/2.b875e78d.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.c91185d1.js",
     "static/js/2.b875e78d.chunk.js",
     "static/css/main.30c17ceb.chunk.css",
-    "static/js/main.14dd92ce.chunk.js"
+    "static/js/main.cb7ef027.chunk.js"
   ]
 }
