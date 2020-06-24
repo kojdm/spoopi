@@ -52,6 +52,9 @@
 }
 
 @media screen and (max-width: 800px) {
+  .AddToSpotifyButton {
+    padding: 0.75rem 1.5rem 0.75rem 0.75rem;
+  }
   .addtospotify-button-content {
     font-size: 1rem;
   }
