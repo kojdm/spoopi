@@ -20,10 +20,12 @@
   transform: translate(-50%, -50%);
 }
 
-.CategoryBox:hover {
-  outline: 3px solid var(--spoopi-orange);
-  opacity: 1;
-  cursor: pointer;
+@media(hover: hover) {
+  .CategoryBox:hover {
+    outline: 3px solid var(--spoopi-orange);
+    opacity: 1;
+    cursor: pointer;
+  }
 }
 
 .category-selected {
@@ -43,7 +45,8 @@
   .category-name {
     font-size: 0.75rem;
   }
-  .CategoryBox:hover {
+  .category-selected {
     outline: 2px solid var(--spoopi-orange);
   }
 }
+

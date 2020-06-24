@@ -61,9 +61,11 @@
     font-size: 1.5rem;
     color: var(--spoopi-gray);
   }
-  .spoopi-info:hover {
-    border: 2px solid var(--spoopi-text);
-    color: var(--spoopi-text);
+  @media(hover: hover) {
+    .spoopi-info:hover {
+      border: 2px solid var(--spoopi-text);
+      color: var(--spoopi-text);
+    }
   }
   .info-clicked {
     border: 2px solid var(--spoopi-text);
