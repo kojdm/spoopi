@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7e3bf858dbbdb5445ed1e12c7a3cb315",
+    "revision": "78ef2e95fda253aac4818fca56100184",
     "url": "/spoopi/index.html"
   },
   {
