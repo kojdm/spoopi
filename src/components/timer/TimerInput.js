@@ -1,14 +1,17 @@
 import React from "react"
 import "./TimerInput.css"
 
+const MAX_HOURS = parseInt(process.env.REACT_APP_MAX_DURATION_HOURS)
+const MIN_MINS = parseInt(process.env.REACT_APP_MIN_DURATION_MINS)
+
 function TimerInput({ symbol, placeholder, setTime, value, readonly, hours }) {
   const handleChange = (e) => {
     const max_length = 2
     e.target.value = e.target.value.slice(0, max_length)
 
     const val = parseInt(e.target.value)
-    if (symbol === "h" && val > 12) {
-      e.target.value = 12
+    if (symbol === "h" && val > MAX_HOURS) {
+      e.target.value = MAX_HOURS
     }
     else if (symbol === "m") {
       if (val > 59) {
@@ -26,8 +29,8 @@ function TimerInput({ symbol, placeholder, setTime, value, readonly, hours }) {
 
     const val = parseInt(e.target.value || 0)
     hours = parseInt(hours || 0)
-    if (hours <= 0 && val < 15) {
-      setTime(symbol, 15)
+    if (hours <= 0 && val < MIN_MINS) {
+      setTime(symbol, MIN_MINS)
     }
   }
 

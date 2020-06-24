@@ -4,15 +4,18 @@ import "./TimerContainer.css"
 import TimerInput from "./TimerInput"
 import NextButton from "../NextButton"
 
+const MAX_HOURS = parseInt(process.env.REACT_APP_MAX_DURATION_HOURS)
+const MIN_MINS = parseInt(process.env.REACT_APP_MIN_DURATION_MINS)
+
 function TimerContainer({ duration, handleDuration, pageTraversal }) {
   // NOTE: keeping this here in case i want to use it again
   // const createPlaceholder = () => {
-  //   const max_hours = 12
-  //   const min_minutes = 15
+  //   const max_hours = MAX_HOURS
+  //   const min_minutes = MINS_MINS
 
   //   let hours = Math.floor(Math.random() * max_hours + 1)
   //   let minutes = 0
-  //   if (hours >= 12) {
+  //   if (hours >= max_hours) {
   //     minutes = 0
   //   }
   //   else if (hours <= 0) {
@@ -41,11 +44,11 @@ function TimerContainer({ duration, handleDuration, pageTraversal }) {
     val = parseInt(val || 0)
     if (key === "h") {
       setHours(val || null)
-      if (val >= 12) setMins("00")
-      if (val <= 0 && mins < 15) setMins(15)
+      if (val >= MAX_HOURS) setMins("00")
+      if (val <= 0 && mins < MIN_MINS) setMins(MIN_MINS)
     }
     else {
-      if (parseInt(hours || 0) >= 12) val = 0
+      if (parseInt(hours || 0) >= MAX_HOURS) val = 0
       setMins(val || null)
     }
   }
@@ -75,7 +78,7 @@ function TimerContainer({ duration, handleDuration, pageTraversal }) {
   return(
     <div className="TimerContainer">
       <TimerInput symbol="h" placeholder={"00"} setTime={handleSetTime} value={hours}/>
-      <TimerInput symbol="m" placeholder={"00"} setTime={handleSetTime} value={mins} readonly={hours >= 12} hours={hours}/>
+      <TimerInput symbol="m" placeholder={"00"} setTime={handleSetTime} value={mins} readonly={hours >= MAX_HOURS} hours={hours}/>
       <NextButton content={nextButtonContent()} nextable={hours !== 0 || mins !== 0} nextPage={pageTraversal}/>
     </div>
   )

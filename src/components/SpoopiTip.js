@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react"
 import "./SpoopiTip.css"
 import arrow from "./spoopi-arrow.png"
 
+const MAX_HOURS = parseInt(process.env.REACT_APP_MAX_DURATION_HOURS)
+const MIN_MINS = parseInt(process.env.REACT_APP_MIN_DURATION_MINS)
+
 function SpoopiTip({ current_page }) {
   const [tipContent, setTipContent] = useState("")
 
@@ -12,7 +15,7 @@ function SpoopiTip({ current_page }) {
     }
     else if (current_page === "timer") {
       tipcon = `select a duration between
-15 mins and 12 hours`
+${MIN_MINS} mins and ${MAX_HOURS} hours`
     }
     else if (current_page === "tracks") {
       tipcon = `pro-tip: shorter playlists' songs can be previewed before adding to spotify`
