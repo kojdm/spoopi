@@ -19,6 +19,7 @@ function TracksContainer({
   setPlaylist
 }) {
   const [loading, setLoading] = useState(true)
+  const [actualDuration, setActualDuration] = useState(0)
 
   useEffect(() => {
     if (duration <= 0 || categories.length <= 0) return
@@ -28,8 +29,11 @@ function TracksContainer({
     const url = base_url + "?seconds=" + duration + "&category_ids=" + categories.join(",") + "&country_code=" + countryCode
 
     fetch(url).then(res => res.json()).then((result) => {
+      const tracks = result.spoopi.tracks
+      const actual_d = tracks.reduce((a, b) => (a + b.duration), 0)
       setLoading(false)
-      handleTracks(result.spoopi.tracks)
+      handleTracks(tracks)
+      setActualDuration(actual_d)
       setBackable(true)
     })
 
@@ -47,7 +51,8 @@ function TracksContainer({
       track_uris: track_uris,
       pl_name: name,
       category_ids: categories.join(","),
-      seconds: duration
+      seconds: duration,
+      actual_duration: actualDuration
     }
 
     fetch(base_url, {
