@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "220bb1963e90ac1e581fa4ea33667976",
+    "revision": "aee90f5a8ebb4bd3f516490f12bc3e50",
     "url": "/spoopi/index.html"
   },
   {
-    "revision": "ed69f4a2406313092e7c",
+    "revision": "d1419fd91ebcfca0b169",
     "url": "/spoopi/static/css/main.552da33b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/spoopi/static/js/2.be0a3b7d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ed69f4a2406313092e7c",
-    "url": "/spoopi/static/js/main.51a6f002.chunk.js"
+    "revision": "d1419fd91ebcfca0b169",
+    "url": "/spoopi/static/js/main.d004860d.chunk.js"
   },
   {
     "revision": "d007b453e358259a88e3",
