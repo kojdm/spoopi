@@ -30,7 +30,7 @@ function TracksContainer({
 
     fetch(url).then(res => res.json()).then((result) => {
       const tracks = result.spoopi.tracks
-      const actual_d = tracks.reduce((a, b) => (a + b.duration), 0)
+      const actual_d = tracks.reduce((a, b) => (a + b.duration_ms), 0)
       setLoading(false)
       handleTracks(tracks)
       setActualDuration(actual_d)
