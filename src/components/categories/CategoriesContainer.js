@@ -61,6 +61,7 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
   }
 
   return(
+    <>
     <div className="CategoriesContainer">
       {allCategories.map(cat => (
         <CategoryBox
@@ -72,8 +73,9 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
           isSelected={selectedCategories.indexOf(cat.id) >= 0}
         />
       ))}
-        <NextButton content={nextButtonContent()} nextable={catCount >= 1} nextPage={pageTraversal}/>
     </div>
+    <NextButton content={nextButtonContent()} nextable={catCount >= 1} nextPage={pageTraversal}/>
+    </>
   )
 }
 
