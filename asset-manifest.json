@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/spoopi/static/css/main.552da33b.chunk.css",
-    "main.js": "/spoopi/static/js/main.100f32dc.chunk.js",
-    "main.js.map": "/spoopi/static/js/main.100f32dc.chunk.js.map",
+    "main.css": "/spoopi/static/css/main.9dcc20d3.chunk.css",
+    "main.js": "/spoopi/static/js/main.639bdfb3.chunk.js",
+    "main.js.map": "/spoopi/static/js/main.639bdfb3.chunk.js.map",
     "runtime-main.js": "/spoopi/static/js/runtime-main.c91185d1.js",
     "runtime-main.js.map": "/spoopi/static/js/runtime-main.c91185d1.js.map",
     "static/js/2.be0a3b7d.chunk.js": "/spoopi/static/js/2.be0a3b7d.chunk.js",
     "static/js/2.be0a3b7d.chunk.js.map": "/spoopi/static/js/2.be0a3b7d.chunk.js.map",
     "index.html": "/spoopi/index.html",
-    "precache-manifest.0f79b1d5d73bb15c3b347cb76012c448.js": "/spoopi/precache-manifest.0f79b1d5d73bb15c3b347cb76012c448.js",
+    "precache-manifest.089ad194d31222ea433db7cf97b3efaa.js": "/spoopi/precache-manifest.089ad194d31222ea433db7cf97b3efaa.js",
     "service-worker.js": "/spoopi/service-worker.js",
-    "static/css/main.552da33b.chunk.css.map": "/spoopi/static/css/main.552da33b.chunk.css.map",
+    "static/css/main.9dcc20d3.chunk.css.map": "/spoopi/static/css/main.9dcc20d3.chunk.css.map",
     "static/js/2.be0a3b7d.chunk.js.LICENSE.txt": "/spoopi/static/js/2.be0a3b7d.chunk.js.LICENSE.txt",
     "static/media/spoopi-arrow.png": "/spoopi/static/media/spoopi-arrow.0452a0a7.png"
   },
   "entrypoints": [
     "static/js/runtime-main.c91185d1.js",
     "static/js/2.be0a3b7d.chunk.js",
-    "static/css/main.552da33b.chunk.css",
-    "static/js/main.100f32dc.chunk.js"
+    "static/css/main.9dcc20d3.chunk.css",
+    "static/js/main.639bdfb3.chunk.js"
   ]
 }
