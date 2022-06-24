@@ -1,13 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { toggleCategory } from '../../actions'
 import "./CategoryBox.css"
 
-function CategoryBox({ id, name, image_url, handleCatCount, handleCategories, isSelected }) {
+function CategoryBox({ id, name, image_url, handleCatCount, handleCategories, isSelected, toggleCategory }) {
   const handleClick = () => {
     const increment = isSelected ? -1 : 1
     const current_count = handleCatCount(increment)
 
     if (current_count <= 5) {
       handleCategories(id)
+      toggleCategory(id)
     }
   }
 
@@ -19,4 +22,6 @@ function CategoryBox({ id, name, image_url, handleCatCount, handleCategories, is
   )
 }
 
-export default CategoryBox
+const mapDispatchToProps = { toggleCategory }
+
+export default connect(null, mapDispatchToProps)(CategoryBox)

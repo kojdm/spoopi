@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
 import "./CategoriesContainer.css"
-
 import CategoryBox from "./CategoryBox"
 import NextButton from "../NextButton"
 
@@ -86,8 +84,4 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
   )
 }
 
-const mapStateToProps = (state) => {
-  return { categories: state.categories }
-}
-
-export default connect(mapStateToProps)(CategoriesContainer)
+export default CategoriesContainer
