@@ -1,14 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+
 import { toggleCategory } from '../../actions'
 import "./CategoryBox.css"
 
-function CategoryBox({ id, name, image_url, handleCatCount, isSelected, toggleCategory }) {
+function CategoryBox({ id, name, image_url, isSelected, catCount, toggleCategory }) {
   const handleClick = () => {
-    const increment = isSelected ? -1 : 1
-    const current_count = handleCatCount(increment)
-
-    if (current_count <= 5) {
+    if (catCount < 5 || isSelected) {
       toggleCategory(id)
     }
   }
