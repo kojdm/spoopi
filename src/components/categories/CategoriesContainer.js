@@ -3,7 +3,7 @@ import "./CategoriesContainer.css"
 import CategoryBox from "./CategoryBox"
 import NextButton from "../NextButton"
 
-function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pageTraversal, selectedCategories }) {
+function CategoriesContainer({ countryCode, setCountryCode, pageTraversal, selectedCategories }) {
   const [allCategories, setAllCategories] = useState([])
   const [catCount, setCatCount] = useState(selectedCategories.length)
 
@@ -74,7 +74,6 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
           name={cat.name}
           image_url={cat.image_url}
           handleCatCount={handleCatCount}
-          handleCategories={handleCategories}
           isSelected={selectedCategories.indexOf(cat.id) >= 0}
         />
       ))}

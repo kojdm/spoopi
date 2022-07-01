@@ -1,4 +1,5 @@
 import React, { useState, useReducer } from 'react';
+import { connect} from 'react-redux';
 import './App.css';
 
 import SpoopiNav from "./components/SpoopiNav"
@@ -23,9 +24,8 @@ const pageReducer = (state, action) => {
   }
 }
 
-function App() {
+function App({ categories }) {
   const [pageState, pageTraversal] = useReducer(pageReducer, initialPageState)
-  const [categories, setCategories] = useState([])
   const [duration, setDuration] = useState(0)
   const [tracks, setTracks] = useState([])
   const [name, setName] = useState("")
@@ -45,7 +45,7 @@ function App() {
         <SpoopiContainer
           current_page={pageState.current_page}
           pageTraversal={pageTraversal}
-          categories={categories} setCategories={setCategories}
+          categories={categories}
           duration={duration} setDuration={setDuration}
           tracks={tracks} setTracks={setTracks}
           name={name} setName={setName}
@@ -59,4 +59,8 @@ function App() {
   )
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { categories: state.categories }
+}
+
+export default connect(mapStateToProps)(App);

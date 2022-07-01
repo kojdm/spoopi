@@ -11,7 +11,7 @@ import SpoopiTip from "./SpoopiTip"
 function SpoopiContainer({
   current_page,
   pageTraversal,
-  categories, setCategories,
+  categories,
   duration, setDuration,
   tracks, setTracks,
   name, setName,
@@ -42,21 +42,6 @@ function SpoopiContainer({
     }
   }, [])
 
-  const handleCategories = (category_id) => {
-    let new_categories = categories
-    const cat_index = new_categories.indexOf(category_id)
-
-    if (cat_index >= 0) {
-      // category already in array so remove it
-      new_categories.splice(cat_index, 1)
-    }
-    else {
-      new_categories.push(category_id)
-    }
-
-    setCategories(new_categories)
-  }
-
   const handleDuration = (hours, mins) => {
     const h_in_s = parseInt(hours || 0) * 60 * 60
     const m_in_s = parseInt(mins || 0) * 60
@@ -67,7 +52,7 @@ function SpoopiContainer({
 
   return(
     <div className="SpoopiContainer">
-      { current_page === "categories" && <CategoriesContainer countryCode={countryCode} setCountryCode={setCountryCode} handleCategories={handleCategories} selectedCategories={categories} pageTraversal={pageTraversal}/> }
+      { current_page === "categories" && <CategoriesContainer countryCode={countryCode} setCountryCode={setCountryCode} selectedCategories={categories} pageTraversal={pageTraversal}/> }
       { current_page === "timer" && <TimerContainer duration={duration} handleDuration={handleDuration} pageTraversal={pageTraversal}/> }
       { current_page === "tracks" && <TracksContainer duration={duration} categories={categories} countryCode={countryCode} tracks={tracks} handleTracks={setTracks} pageTraversal={pageTraversal} setBackable={setBackable} name={name} setName={setName} accessToken={accessToken} setPlaylist={setPlaylist}/> }
       { current_page === "playlist" && <PlaylistContainer playlist={playlist} pageTraversal={pageTraversal}/> }
