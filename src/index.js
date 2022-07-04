@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import reducers from './reducers';
 
+const root =
+  <Provider store={createStore(reducers, composeWithDevTools())}>
+    <App/>
+  </Provider>
 const rootElement = document.getElementById("root")
 
 if (rootElement.hasChildNodes()) {
-  ReactDOM.hydrate(<App />, rootElement)
+  ReactDOM.hydrate(root, rootElement)
 } else {
-  ReactDOM.render(<App />, rootElement)
+  ReactDOM.render(root, rootElement)
 }
 
 // If you want your app to work offline and load faster, you can change

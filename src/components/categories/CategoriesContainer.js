@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import "./CategoriesContainer.css"
-
 import CategoryBox from "./CategoryBox"
 import NextButton from "../NextButton"
 
-function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pageTraversal, selectedCategories }) {
+function CategoriesContainer({ countryCode, setCountryCode, pageTraversal, selectedCategories }) {
   const [allCategories, setAllCategories] = useState([])
-  const [catCount, setCatCount] = useState(selectedCategories.length)
+  const catCount = selectedCategories.length
 
   useEffect(() => {
     const local_categories = JSON.parse(localStorage.getItem("allCategories"))
@@ -45,15 +44,6 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
       )
   }, [countryCode, setCountryCode])
 
-  const handleCatCount = (increment) => {
-    const new_count = catCount + increment
-    if (new_count <= 5) {
-      setCatCount(new_count) 
-    }
-
-    return new_count
-  }
-
   const nextButtonContent = () => {
     if (catCount === 5) {
       return "5 of 5 selected"
@@ -74,9 +64,8 @@ function CategoriesContainer({ countryCode, setCountryCode, handleCategories, pa
           id={cat.id}
           name={cat.name}
           image_url={cat.image_url}
-          handleCatCount={handleCatCount}
-          handleCategories={handleCategories}
           isSelected={selectedCategories.indexOf(cat.id) >= 0}
+          catCount={catCount}
         />
       ))}
     </div>
